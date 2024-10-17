@@ -29,7 +29,7 @@ jobs:
                 echo "CONFIG_PACKAGE_rp-pppoe-common=y\n" > .config
                 echo "CONFIG_PACKAGE_rp-pppoe-relay=y\n" >> .config
                 echo "CONFIG_PACKAGE_rp-pppoe-server=y\n" >> .config
-                echo "CONFIG_PACKAGE_luci-app-rp-pppoe-server=y\n" >> .config
+              #  echo "CONFIG_PACKAGE_luci-app-rp-pppoe-server=y\n" >> .config
 
             - name: Generate config for Xiaomi AX3000T
               run: |
