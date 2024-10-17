@@ -1,5 +1,10 @@
 name: Build Xiaomi AX3000T
-on: [push]
+on: 
+  push:
+    tags:
+      - "dev"
+      - "master"
+  workflow_dispatch:
 
 jobs:
     build:
@@ -10,10 +15,21 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            - name: insert luci-rp-pppoe-relay
+              run: |
+                echo "src-git lienol https://github.com/Lienol/openwrt-package" >> feeds.conf.default
+
             - name: Update and install feeds
               run: |
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
+            
+            - name: Generate pppoe-relay config for Xiaomi AX3000T
+              run: |
+                echo "CONFIG_PACKAGE_rp-pppoe-common=y\n" > .config
+                echo "CONFIG_PACKAGE_rp-pppoe-relay=y\n" >> .config
+                echo "CONFIG_PACKAGE_rp-pppoe-server=y\n" >> .config
+                echo "CONFIG_PACKAGE_luci-app-rp-pppoe-server=y\n" >> .config
 
             - name: Generate config for Xiaomi AX3000T
               run: |
