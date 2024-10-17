@@ -33,7 +33,7 @@ jobs:
 
             - name: Generate config for Xiaomi AX3000T
               run: |
-                echo "CONFIG_TARGET_mediatek=y\n" > .config
+                echo "CONFIG_TARGET_mediatek=y\n" >> .config
                 echo "CONFIG_TARGET_mediatek_filogic=y\n" >> .config
                 echo "CONFIG_TARGET_MULTI_PROFILE=y\n" >> .config
                 echo "CONFIG_TARGET_PER_DEVICE_ROOTFS=y\n" >> .config
