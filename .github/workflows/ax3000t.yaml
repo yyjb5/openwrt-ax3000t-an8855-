@@ -29,6 +29,7 @@ jobs:
                 echo "CONFIG_PACKAGE_rp-pppoe-common=y\n" > .config
                 echo "CONFIG_PACKAGE_rp-pppoe-relay=y\n" >> .config
                 echo "CONFIG_PACKAGE_rp-pppoe-server=y\n" >> .config
+                echo "CONFIG_PACKAGE_luci-compat=y\n" >> .config
                 echo "CONFIG_PACKAGE_luci-lua-runtime=y\n" >> .config
                 echo "CONFIG_PACKAGE_luci-app-pppoe-server=y\n" >> .config
                 echo "CONFIG_PACKAGE_luci-app-pppoe-relay=y\n" >> .config
