@@ -1,7 +1,7 @@
 name: Build Xiaomi AX3000T
 on: 
   push:
-    tags:
+    branches:
       - "dev"
       - "master"
   workflow_dispatch:
