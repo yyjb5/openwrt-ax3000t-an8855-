@@ -18,6 +18,10 @@ jobs:
             - name: insert luci-rp-pppoe-relay
               run: |
                 echo "src-git lienol https://github.com/Lienol/openwrt-package" >> feeds.conf.default
+            
+            - name: insert luci-app-xray 
+              run: |
+                echo "src-git-full luci_app_xray https://github.com/pangwa/luci-app-xray" >> feeds.conf.default
 
             - name: Update and install feeds
               run: |
@@ -34,6 +38,17 @@ jobs:
                 echo "CONFIG_PACKAGE_luci-app-pppoe-server=y\n" >> .config
                 echo "CONFIG_PACKAGE_luci-app-pppoe-relay=y\n" >> .config
                 echo "CONFIG_LUCI_LANG_zh_Hans=y\n" >> .config
+
+            - name: Generate openvpn config for Xiaomi AX3000T
+              run: |
+                echo "CONFIG_PACKAGE_kmod-tun=y\n" >> .config
+                echo "CONFIG_PACKAGE_openvpn-openssl=y\n" >> .config
+                echo "CONFIG_PACKAGE_luci-app-openvpn=y\n" >> .config
+
+            - name: Generate luci-app-xray  config for Xiaomi AX3000T
+              run: |
+                echo "CONFIG_PACKAGE_xray-core=y\n" >> .config
+                echo "CONFIG_PACKAGE_luci-app-xray=y\n" >> .config
 
             - name: Generate config for Xiaomi AX3000T
               run: |
