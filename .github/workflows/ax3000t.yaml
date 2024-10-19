@@ -50,6 +50,11 @@ jobs:
                 echo "CONFIG_PACKAGE_xray-core=y\n" >> .config
                 echo "CONFIG_PACKAGE_luci-app-xray=y\n" >> .config
 
+            - name: Generate other config for Xiaomi AX3000T
+              run: |
+                echo "CONFIG_PACKAGE_luci-app-mwan3=y\n" >> .config
+                echo "CONFIG_PACKAGE_luci-app-ddns=y\n" >> .config  
+
             - name: Generate config for Xiaomi AX3000T
               run: |
                 echo "CONFIG_TARGET_mediatek=y\n" >> .config
