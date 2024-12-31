@@ -21,7 +21,7 @@ jobs:
             
             - name: insert luci-app-xray 
               run: |
-                echo "src-git-full luci_app_xray https://github.com/pangwa/luci-app-xray" >> feeds.conf.default
+                echo "src-git-full luci_app_xray https://github.com/yichya/luci-app-xray" >> feeds.conf.default
 
             - name: Update and install feeds
               run: |
